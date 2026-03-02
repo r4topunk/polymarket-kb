@@ -16,17 +16,17 @@ export function RelatedTopics({
   // TODO: Format [[slug]] references for display
 
   return (
-    <div className="border border-border bg-card p-4 text-xs">
+    <div className="border border-border bg-card p-3 sm:p-4 text-xs">
       {/* LINKS TO section */}
       {relatedTopics.length > 0 && (
         <section className="mb-4">
           <div className="text-xs tui-dim mb-2">── LINKS TO ──────────────────</div>
-          <div className="flex flex-wrap gap-1">
+          <div className="flex flex-wrap gap-1.5 sm:gap-1">
             {relatedTopics.map((slug) => (
               <Link
                 key={slug}
                 href={`/topics/${slug}`}
-                className="text-primary hover:bg-accent border border-border px-1 transition-colors"
+                className="text-primary hover:bg-accent border border-border px-1 py-0.5 transition-colors"
               >
                 {slug}
               </Link>
@@ -39,12 +39,12 @@ export function RelatedTopics({
       {backlinks.length > 0 && (
         <section>
           <div className="text-xs tui-dim mb-2">── LINKED FROM ────────────────</div>
-          <div className="flex flex-wrap gap-1">
+          <div className="flex flex-wrap gap-1.5 sm:gap-1">
             {backlinks.map((slug) => (
               <Link
                 key={slug}
                 href={`/topics/${slug}`}
-                className="text-primary hover:bg-accent border border-border px-1 transition-colors"
+                className="text-primary hover:bg-accent border border-border px-1 py-0.5 transition-colors"
               >
                 {slug}
               </Link>

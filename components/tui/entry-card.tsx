@@ -22,7 +22,7 @@ export function EntryCard({ entry }: { entry: ParsedEntry }) {
   return (
     <article className="border border-border bg-card">
       {/* Header row: date + impact badge */}
-      <div className="flex items-center justify-between gap-2 px-4 py-2 border-b border-border bg-muted/30">
+      <div className="flex items-center justify-between gap-2 px-3 py-2 sm:px-4 border-b border-border bg-muted/30">
         <span className="text-xs tui-dim tabular-nums">
           {day}
           {time && <span className="text-muted-foreground"> · {time}</span>}
@@ -36,7 +36,7 @@ export function EntryCard({ entry }: { entry: ParsedEntry }) {
         )}
       </div>
 
-      <div className="px-4 py-3 space-y-3">
+      <div className="px-3 py-3 sm:px-4 space-y-3">
         {/* Headline */}
         <h3 className="text-sm font-bold text-foreground leading-snug">
           {entry.headline}
@@ -44,20 +44,20 @@ export function EntryCard({ entry }: { entry: ParsedEntry }) {
 
         {/* Tags */}
         {entry.tags.length > 0 && (
-          <div className="flex flex-wrap gap-1">
+          <div className="flex flex-wrap gap-1.5 sm:gap-1">
             {entry.tags.map((tag, i) =>
               tag.href ? (
                 <Link
                   key={i}
                   href={tag.href}
-                  className="text-xs text-primary border border-border px-1 hover:bg-accent transition-colors"
+                  className="text-xs text-primary border border-border px-1 py-0.5 hover:bg-accent transition-colors"
                 >
                   {tag.text}
                 </Link>
               ) : (
                 <span
                   key={i}
-                  className="text-xs tui-dim border border-border px-1"
+                  className="text-xs tui-dim border border-border px-1 py-0.5"
                 >
                   {tag.text}
                 </span>
@@ -85,7 +85,7 @@ export function EntryCard({ entry }: { entry: ParsedEntry }) {
                   href={src.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block text-xs text-primary hover:underline truncate"
+                  className="block text-xs text-primary hover:underline truncate py-1"
                 >
                   · {src.title}
                 </a>

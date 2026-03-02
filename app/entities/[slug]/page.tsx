@@ -54,11 +54,14 @@ export default async function EntityPage({
   );
 
   return (
-    <div className="p-4 max-w-5xl mx-auto">
+    <div className="px-3 py-4 sm:px-4 max-w-5xl mx-auto">
       {/* Terminal prompt */}
-      <div className="mb-5 text-sm">
-        <span className="tui-dim">root@polymarket-kb:~/entities$</span>{" "}
-        <span className="text-primary tui-cursor">cat {slug}.md</span>
+      <div className="mb-5 text-sm flex items-baseline gap-1 overflow-hidden">
+        <span className="tui-dim shrink-0">
+          <span className="hidden sm:inline">root@polymarket-kb:~/entities$</span>
+          <span className="sm:hidden">~/entities$</span>
+        </span>{" "}
+        <span className="text-primary tui-cursor truncate min-w-0">cat {slug}.md</span>
       </div>
 
       {/* Entity header: title + metadata */}
@@ -86,7 +89,7 @@ export default async function EntityPage({
         </div>
 
         {/* Sidebar: related topics and backlinks */}
-        <div className="lg:col-span-1">
+        <div className="lg:col-span-1 order-first lg:order-none">
           <RelatedTopics
             relatedTopics={entity.relatedTopics}
             backlinks={backlinks}
@@ -98,17 +101,19 @@ export default async function EntityPage({
       {/* Backlinks section (full width below content) */}
       {backlinks.length > 0 && (
         <section className="mt-6 border border-border bg-card p-4">
-          <div className="text-xs tui-dim mb-3">
-            ── REFERENCED BY ({backlinks.length}) ──────────────────────────────
+          <div className="text-xs tui-dim mb-3 flex items-center gap-2 overflow-hidden">
+            <span className="shrink-0">──</span>
+            <span className="shrink-0">REFERENCED BY ({backlinks.length})</span>
+            <span className="border-b border-border flex-1" />
           </div>
           <div className="flex flex-wrap gap-2">
             {backlinks.map((backlink) => (
               <Link
                 key={backlink}
                 href={`/topics/${backlink}`}
-                className="text-primary hover:underline text-xs border border-primary px-2 py-1"
+                className="text-primary hover:underline text-xs border border-primary px-2 py-1.5"
               >
-                [[{backlink}]]
+                {backlink}
               </Link>
             ))}
           </div>

@@ -15,7 +15,7 @@ export function MarkdownContent({
         "prose prose-sm max-w-none font-mono text-xs leading-relaxed",
         "prose-a:text-primary prose-a:underline hover:prose-a:no-underline",
         "prose-code:bg-card prose-code:px-1 prose-code:py-0.5",
-        "prose-pre:bg-card prose-pre:border prose-pre:border-border",
+        "prose-pre:bg-card prose-pre:border prose-pre:border-border prose-pre:overflow-x-auto",
         "prose-headings:font-mono prose-headings:font-bold",
         className
       )}

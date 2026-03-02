@@ -18,6 +18,8 @@ export const metadata: Metadata = {
     "Real-time geopolitical and crypto research powering an autonomous prediction market analysis system.",
 };
 
+export const viewport = { width: "device-width", initialScale: 1 };
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {

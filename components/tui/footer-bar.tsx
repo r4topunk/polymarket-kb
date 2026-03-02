@@ -8,7 +8,7 @@ export function FooterBar({
   lastUpdated?: string;
 }) {
   return (
-    <footer className="border-t border-border bg-card text-card-foreground px-3 py-1 flex items-center justify-between gap-4 shrink-0 text-xs tui-dim mt-auto">
+    <footer className="border-t border-border bg-card text-card-foreground px-3 py-1 pb-[calc(env(safe-area-inset-bottom)+0.25rem)] sm:pb-1 flex items-center justify-between gap-4 shrink-0 text-xs tui-dim mt-auto">
       <div className="flex items-center gap-3 min-w-0">
         {topicCount > 0 && (
           <span className="shrink-0">{topicCount} TOPICS</span>

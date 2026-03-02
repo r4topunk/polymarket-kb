@@ -44,11 +44,14 @@ export default async function TopicPage({
   );
 
   return (
-    <div className="p-4 max-w-5xl mx-auto">
+    <div className="px-3 py-4 sm:px-4 max-w-5xl mx-auto">
       {/* Terminal prompt */}
-      <div className="mb-5 text-sm">
-        <span className="tui-dim">root@polymarket-kb:~/topics$</span>{" "}
-        <span className="text-primary tui-cursor">cat {slug}.md</span>
+      <div className="mb-5 text-sm flex items-baseline gap-1 overflow-hidden">
+        <span className="tui-dim shrink-0">
+          <span className="hidden sm:inline">root@polymarket-kb:~/topics$</span>
+          <span className="sm:hidden">~/topics$</span>
+        </span>{" "}
+        <span className="text-primary tui-cursor truncate min-w-0">cat {slug}.md</span>
       </div>
 
       {/* Topic header */}
@@ -88,8 +91,10 @@ export default async function TopicPage({
           {/* Entry cards */}
           {entries.length > 0 && (
             <div>
-              <div className="text-xs tui-dim mb-2">
-                ── ENTRIES ({entries.length}) ────────────────────────────────
+              <div className="text-xs tui-dim mb-2 flex items-center gap-2 overflow-hidden">
+                <span className="shrink-0">──</span>
+                <span className="shrink-0">ENTRIES ({entries.length})</span>
+                <span className="border-b border-border flex-1" />
               </div>
               <div className="space-y-3">
                 {entries.map((entry, i) => (
@@ -101,7 +106,7 @@ export default async function TopicPage({
         </div>
 
         {/* Sidebar */}
-        <div className="lg:col-span-1 space-y-4">
+        <div className="lg:col-span-1 order-first lg:order-none space-y-4">
           <RelatedTopics
             relatedTopics={topic.relatedTopics}
             backlinks={backlinks}

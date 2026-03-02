@@ -15,7 +15,7 @@ export function ThemeToggle() {
   return (
     <button
       onClick={() => setTheme(isTerminal ? "light" : "dark")}
-      className="text-xs border border-border px-2 py-0.5 hover:bg-accent hover:text-accent-foreground transition-colors cursor-pointer shrink-0"
+      className="text-xs border border-border px-2 py-2 sm:py-0.5 hover:bg-accent hover:text-accent-foreground transition-colors cursor-pointer shrink-0"
       aria-label="Toggle theme"
     >
       {isTerminal ? (

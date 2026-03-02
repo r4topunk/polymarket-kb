@@ -125,11 +125,18 @@
   }
   body {
     @apply bg-background text-foreground font-mono;
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
   }
 }
 
 /* ─── TUI UTILITIES ───────────────────────────────────────────────────── */
 @layer utilities {
+  /* Dimmed text */
+  .tui-dim {
+    opacity: 0.5;
+  }
+
   /* Blinking block cursor */
   .tui-cursor::after {
     content: "█";
@@ -156,5 +163,11 @@
       oklch(0 0 0 / 0.06) 3px,
       oklch(0 0 0 / 0.06) 4px
     );
+  }
+
+  /* Code block horizontal scroll on mobile */
+  pre {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
   }
 }
